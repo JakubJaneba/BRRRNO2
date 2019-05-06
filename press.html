@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>BRRRNO2 – PRESS</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+<body>
+ 
+
+    <div id="header">
+        <a href="index.html">
+          <img alt="BRRRNO" src="data/header.svg" />
+        </a>
+      </div>
+    
+      <div id="subheader">
+          <img alt="Brněnské pověsti/multimediální místopis" src="data/subheader.svg" />
+      </div>
+    
+      <div id="subheader_mobile">
+            <p>Brněnské pověsti/multimediální místopis</p>
+        </div>
+
+    <div id="menu">
+      <ul>
+        <li>
+            <a href="press.html">PRESS</a>
+        </li>
+    
+        <li>
+          <a href="https://www.facebook.com/" target="_blank">FB</a>
+        </li>
+    
+        <li>
+          <a href="https://www.instagram.com/"target="_blank">INST</a>
+        </li>
+      </ul>
+    </div>
+    
+
+
+<!-- :::::::::::::::::::::::::::::::::::::::::: OBSAH PRESS :::::::::::::::::::::::::::::::::::::::::: -->
+
+<div class="obsah" id="obsahpress">
+        
+    <div id="close_button">
+        <a href="index.html">×</a>
+     </div>
+
+     <div class="nadpis_press">
+            <h2>
+                Úvodní slovo
+            </h2>
+    </div>
+
+    <div class="text_press">
+            <p>
+                Brno-střed se může jako jedna z mála městských částí pyšnit množstvím pověstí a legend, jejichž původ sahá až do přelomu středověku a raného novověku. Smyslem projektu je tyto staré legendy a pověsti připomenout současnými prostředky, a to nejen turistům Brna, ale i místním. Jak se podařilo spolupracujícím studentům výtvarných oborů povyprávět příběhy spjaté s konkrétními místy, prostřednictvím médií – zvuk, světlo, obraz, objekt, posuďte sami. Jejich nasazení a chuť ke spolupráci se v průběhu příprav projevily značně inspirativně. Stejně jako ochota spolupracujících vedoucích ateliérů Fakulty informatiky Masarykovy univerzity a Fakulty výtvarných umění Vysokého učení technického v Brně. Nemůžeme opomenout poděkovat za vstřícnost všem majitelům a provozovatelům legendami opředených míst.
+                
+                <br>
+                <br>
+
+                Veškeré informace o projektu a jednotlivých instalacích najdete na tomto webu, kam budou po proběhnutí projektu zavěšena videa zachycující zpracování pověstí. Na všech pobočkách TIC najdete také informační brožuru s mapkou a na každém z devíti zapojených míst i cedulku s QR kódem.
+                </p>
+    </div>
+
+
+    <div class="nadpis_press">
+        <h2>
+            Pořadatelé <br> a partneři
+        </h2>
+</div>
+
+<div class="text_press">
+        <p>
+            Brno-střed se může jako jedna z mála městských částí pyšnit množstvím pověstí a legend, jejichž původ sahá až do přelomu středověku a raného novověku. Smyslem projektu je tyto staré legendy a pověsti připomenout současnými prostředky, a to nejen turistům Brna, ale i místním. Jak se podařilo spolupracujícím studentům výtvarných oborů povyprávět příběhy spjaté s konkrétními místy, prostřednictvím médií – zvuk, světlo, obraz, objekt, posuďte sami. Jejich nasazení a chuť ke spolupráci se v průběhu příprav projevily značně inspirativně. Stejně jako ochota spolupracujících vedoucích ateliérů Fakulty informatiky Masarykovy univerzity a Fakulty výtvarných umění Vysokého učení technického v Brně. Nemůžeme opomenout poděkovat za vstřícnost všem majitelům a provozovatelům legendami opředených míst.
+            
+            <br>
+            <br>
+
+            Veškeré informace o projektu a jednotlivých instalacích najdete na tomto webu, kam budou po proběhnutí projektu zavěšena videa zachycující zpracování pověstí. Na všech pobočkách TIC najdete také informační brožuru s mapkou a na každém z devíti zapojených míst i cedulku s QR kódem.
+            </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<!-- :::::::::::::::::::::::::::::::::::::::::: KONEC OBSAH PRESS :::::::::::::::::::::::::::::::::::::::::: -->
+
+     <!-- ____________________FADER_____________________ -->
+     <svg id="fader"></svg>
+     <script>
+         fadeInPage();
+         function fadeInPage() {
+             if (!window.AnimationEvent) { return; }
+             var fader = document.getElementById('fader');
+     fader.classList.add('fade-out');
+ }
+ </script>
+
+ <!-- ____________________FADER_____________________ --> 
+<div id='map'>    
+</div>
+
+
+
+
+
+
+<script>
+
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiamFrdWJqYW5lYmEiLCJhIjoiY2p1eDFhcnV4MGVqeDRlbWxodjJyeGJ0ZSJ9.7VKHAibdzmRpc23pe3MwtQ';
+const map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/jakubjaneba/cjvb1vlbk0wjn1fkxytrmxny3',
+center: [16.604, 49.1945],
+zoom: 15.1,
+maxZoom: 20,
+minZoom: 14
+});
+
+
+
+
+
+
+
+
+ //██████████████████████████████████████ 1 ██████████████████████████████████████
+map.on('load', function() {
+    map.loadImage('data/numbers/1.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('1', image);
+        map.addLayer({
+            "id": "1",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [16.603744, 49.196692]
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "1",
+                "icon-size": 0.25
+            }
+        });
+    });
+});
+
+
+
+map.on('load', function () {
+
+    // Při kliknutí na box places se přesměruje na jinou stránku
+    map.on('click', '1', function () {
+        window.open(
+                '1.html',
+                '_top'
+            );
+        
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', '1', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', '1', function () {
+        map.getCanvas().style.cursor = '';
+    });
+});
+
+//████████████████████████████████████ 1 END ████████████████████████████████████
+
+
+ //██████████████████████████████████████ 2 ██████████████████████████████████████
+map.on('load', function() {
+    map.loadImage('data/numbers/2.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('2', image);
+        map.addLayer({
+            "id": "2",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [16.603927, 49.196299]
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "2",
+                "icon-size": 0.25
+            }
+        });
+    });
+});
+
+
+
+map.on('load', function () {
+
+    // Při kliknutí na box places se přesměruje na jinou stránku
+    map.on('click', '2', function () {
+        window.open(
+                '2.html',
+                '_top'
+            );
+        
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', '2', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', '2', function () {
+        map.getCanvas().style.cursor = '';
+    });
+});
+
+//████████████████████████████████████ 2 END ████████████████████████████████████
+
+ //██████████████████████████████████████ 3 ██████████████████████████████████████
+ map.on('load', function() {
+    map.loadImage('data/numbers/3.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('3', image);
+        map.addLayer({
+            "id": "3",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [16.606519, 49.195979]
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "3",
+                "icon-size": 0.25
+            }
+        });
+    });
+});
+
+
+
+map.on('load', function () {
+
+    // Při kliknutí na box places se přesměruje na jinou stránku
+    map.on('click', '3', function () {
+        window.open(
+                '3.html',
+                '_top'
+            );
+        
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', '3', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', '3', function () {
+        map.getCanvas().style.cursor = '';
+    });
+});
+
+//████████████████████████████████████ 3 END ████████████████████████████████████
+
+ //██████████████████████████████████████ 4 ██████████████████████████████████████
+ map.on('load', function() {
+    map.loadImage('data/numbers/4.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('4', image);
+        map.addLayer({
+            "id": "4",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [16.610392, 49.195249]
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "4",
+                "icon-size": 0.25
+            }
+        });
+    });
+});
+
+
+
+map.on('load', function () {
+
+    // Při kliknutí na box places se přesměruje na jinou stránku
+    map.on('click', '4', function () {
+        window.open(
+                '4.html',
+                '_top'
+            );
+        
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', '4', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', '4', function () {
+        map.getCanvas().style.cursor = '';
+    });
+});
+
+//████████████████████████████████████ 4 END ████████████████████████████████████
+
+ //██████████████████████████████████████ 5 ██████████████████████████████████████
+ map.on('load', function() {
+    map.loadImage('data/numbers/5.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('5', image);
+        map.addLayer({
+            "id": "5",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [16.612591, 49.195251]
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "5",
+                "icon-size": 0.25
+            }
+        });
+    });
+});
+
+
+
+map.on('load', function () {
+
+    // Při kliknutí na box places se přesměruje na jinou stránku
+    map.on('click', '5', function () {
+        window.open(
+                '5.html',
+                '_top'
+            );
+        
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', '5', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', '5', function () {
+        map.getCanvas().style.cursor = '';
+    });
+});
+
+//████████████████████████████████████ 5 END ████████████████████████████████████
+
+ //██████████████████████████████████████ 6 ██████████████████████████████████████
+ map.on('load', function() {
+    map.loadImage('data/numbers/6.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('6', image);
+        map.addLayer({
+            "id": "6",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [16.613401, 49.195165]
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "6",
+                "icon-size": 0.25
+            }
+        });
+    });
+});
+
+
+
+map.on('load', function () {
+
+    // Při kliknutí na box places se přesměruje na jinou stránku
+    map.on('click', '6', function () {
+        window.open(
+                '6.html',
+                '_top'
+            );
+        
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', '6', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', '6', function () {
+        map.getCanvas().style.cursor = '';
+    });
+});
+
+//████████████████████████████████████ 6 END ████████████████████████████████████
+
+ //██████████████████████████████████████ 7 ██████████████████████████████████████
+ map.on('load', function() {
+    map.loadImage('data/numbers/7.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('7', image);
+        map.addLayer({
+            "id": "7",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [16.609042, 49.193961]
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "7",
+                "icon-size": 0.25
+            }
+        });
+    });
+});
+
+
+
+map.on('load', function () {
+
+    // Při kliknutí na box places se přesměruje na jinou stránku
+    map.on('click', '7', function () {
+        window.open(
+                '7.html',
+                '_top'
+            );
+        
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', '7', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', '7', function () {
+        map.getCanvas().style.cursor = '';
+    });
+});
+
+//████████████████████████████████████ 7 END ████████████████████████████████████
+
+ //██████████████████████████████████████ 8 ██████████████████████████████████████
+ map.on('load', function() {
+    map.loadImage('data/numbers/8.png', function(error, image) {
+        if (error) throw error;
+        map.addImage('8', image);
+        map.addLayer({
+            "id": "8",
+            "type": "symbol",
+            "source": {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [16.612596, 49.191347]
+                        }
+                    }]
+                }
+            },
+            "layout": {
+                "icon-image": "8",
+                "icon-size": 0.25
+            }
+        });
+    });
+});
+
+
+
+map.on('load', function () {
+
+    // Při kliknutí na box places se přesměruje na jinou stránku
+    map.on('click', '8', function () {
+        window.open(
+                '8.html',
+                '_top',
+            );
+        
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.on('mouseenter', '8', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', '8', function () {
+        map.getCanvas().style.cursor = '';
+    });
+});
+
+//████████████████████████████████████ 8 END ████████████████████████████████████
+
+
+
+
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

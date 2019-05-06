@@ -1,0 +1,488 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*___________________________________________________________*/
+
+
+
+@font-face {
+    font-family: 'Plusss';
+    font-weight: normal;
+    src: url('data/fonts/PlusssBrrrno-Regular.eot');
+    src: url('data/fonts/PlusssBrrrno-Regular.eot') format('embedded-opentype');
+    src: url('data/fonts/PlusssBrrrno-Regular.woff2') format('woff2');
+    src: url('data/fonts/PlusssBrrrno-Regular.woff') format('woff');
+}
+
+/*--------------------------------FADER IN OUT--------------------------------*/
+#fader {
+    position: fixed;
+    visibility: visible;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2900;
+    pointer-events: none;
+    background: black;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
+
+
+@keyframes fade-out {
+    from { opacity: 1 }
+      to { opacity: 0 }
+}
+
+@keyframes fade-in {
+    from { opacity: 0 }
+      to { opacity: 1 }
+}
+
+#fader.fade-out {
+    opacity: 0;
+    animation-name: fade-out;
+}
+
+#fader.fade-in {
+    opacity: 1;
+    animation-name: fade-in;
+}
+
+
+/*----------------------------------------------------------------*/
+
+
+
+#map { 
+    position:absolute; 
+    top:0; 
+    bottom:0; 
+    width:100%;
+    z-index: -3000; 
+
+}
+
+
+
+body{
+
+    font-family: Plusss, Arial, sans-serif;
+    background-color: black;
+}
+
+
+
+
+
+a{
+    color: #e8002a;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+a:hover{
+    color: white;
+}
+
+#header img{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    height: 70px;
+    z-index: 100;
+}
+
+#header{
+    pointer-events:none;
+}
+
+#subheader img{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    height: 70px;
+    z-index: 100;
+}
+
+#subheader_mobile{
+    visibility: hidden;
+}
+
+#subheader{
+    pointer-events:none;
+}
+
+#menu{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    z-index: 2000;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+  }
+
+  li a{
+      font-size: 30px;
+  }
+
+#close_button{
+    display: block;
+    position: fixed;
+    box-sizing: border-box;
+    font-size: 40px;
+    left: 390px;
+    top: 145px;
+    z-index: 5000;
+}
+
+#close_button a{
+    color: white;
+}
+
+#close_button a:hover{
+    color: #e8002a;
+}
+
+h2{
+    font-size: 40px;
+    color: white;
+    text-transform: uppercase;
+}
+
+#nadpis_projektu{
+    position: absolute;
+    padding: 15px 80px 20px 20px;
+
+}
+
+
+#obrazek1{
+    width:400px;
+    height: 400px;
+    padding-bottom: 20px;
+}
+
+
+.obsah{
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    margin-top: 130px;
+    margin-left: 30px;
+    width: 400px;
+    height: calc(100vh - 215px);
+    z-index: 2000;
+    background-color: black;
+    overflow: scroll;
+}
+
+
+
+dt{
+    font-size: 25px;
+    float: left;
+    width: 35%;
+    padding-bottom: 10px;
+    color: white;
+}
+
+dd{
+    font-size: 25px;
+    float: left;
+    width: 65%;
+    padding-bottom: 10px;
+    color: white;
+}
+
+#info{
+    display: block;
+    padding:20px;
+}
+
+
+#popis_projektu{
+    padding:180px 20px 20px 20px;
+}
+
+
+p{
+    font-size: 18px;
+    color: white;
+}
+
+
+
+
+/* PRESS */
+
+
+.nadpis_press{
+    padding: 15px 80px 20px 20px;
+
+}
+
+
+.text_press{
+    padding:0px 20px 20px 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*__________________________________________MEDIA QUERIES______________________________*/
+
+
+
+
+@media (min-height: 850px) {
+    .obsah{height: 635px;}
+}
+
+
+@media only screen and (max-width: 453px) and (min-width: 311px){
+    #fader {
+    position: fixed;
+    visibility: visible;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2900;
+    pointer-events: none;
+    background: black;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    }
+
+    #header img{
+        top: 20px;
+        left: 20px;
+        height: 30px;
+        z-index: 100;
+
+    }
+    
+    #subheader img{
+        visibility: hidden;
+    }
+
+    #subheader_mobile{
+        visibility: visible;
+        position: absolute;
+        top:60px;
+        left: 20px;
+    }
+
+    #subheader_mobile p{
+        color: #e8002a;
+        font-size: 15px;
+    }
+
+
+    #menu{
+        bottom: 40px;
+        left: 20px;
+    }
+
+    #close_button{
+        display: block;
+    position: fixed;
+    box-sizing: border-box;
+    font-size: 40px;
+    left: auto;
+    right:13vw;
+    top: 100px;
+    z-index: 5000;
+    }
+
+    h2{
+        font-size: 30px;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    #nadpis_projektu{
+        position: absolute;
+        padding: 15px 70px 20px 20px;
+    
+    }
+
+
+    #obrazek1{
+        width: 100%;
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+
+
+    #obrazek1 img{
+        width: 100%;
+        height: auto;
+    }
+
+    .obsah{
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    margin-top: 90px;
+    margin-left: 20px;
+    width: 89vw;
+    height: calc(100vh - 170px);
+    z-index: 2000;
+    background-color: black;
+    overflow: scroll;
+    }
+
+    dt{
+        font-size: 20px;
+        float: left;
+        width: 40%;
+        padding-bottom: 10px;
+        color: white;
+    }
+    
+    dd{
+        font-size: 20px;
+        float: left;
+        width: 60%;
+        padding-bottom: 10px;
+        color: white;
+    }
+
+    #popis_projektu{
+        padding:200px 20px 20px 20px;
+    }
+
+}
+
+@media only screen and (max-width: 607px) and (min-width: 454px){
+
+    #subheader img{
+        visibility: hidden;
+    }
+
+    #subheader_mobile{
+        visibility: visible;
+        position: absolute;
+        top: 110px;
+        left: 30px;
+    }
+
+    #subheader_mobile p{
+        color: #e8002a;
+        font-size: 18px;
+    }
+
+    .obsah{
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        margin-top: 140px;
+        margin-left: 30px;
+        width: 89vw;
+        height: calc(100vh - 220px);
+        z-index: 2000;
+        background-color: black;
+        overflow: scroll;
+        }
+
+        #obrazek1{
+            width: 100%;
+            height: auto;
+            padding-bottom: 20px;
+        }
+    
+    
+    
+        #obrazek1 img{
+            width: 100%;
+            height: auto;
+        }
+
+        #close_button{
+            display: block;
+        position: fixed;
+        box-sizing: border-box;
+        font-size: 40px;
+        left: auto;
+        right:9vw;
+        top: 150px;
+        z-index: 5000;
+        }
+
+
+
+
+
+
+
+
+
+
+
+}
